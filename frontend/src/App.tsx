@@ -28,7 +28,7 @@ function App() {
 
   // Establish socket connection
   useEffect(() => {
-    const newSocket = io("http://localhost:3000", {
+    const newSocket = io("https://locationtracking-oqi9.onrender.com", {
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
