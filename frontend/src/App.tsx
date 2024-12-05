@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { Icon } from "leaflet";
 import { io, Socket } from "socket.io-client";
@@ -28,7 +28,7 @@ function App() {
 
   // Establish socket connection
   useEffect(() => {
-    const newSocket = io("https://locationtracking-oqi9.onrender.com", {
+    const newSocket: any = io("https://locationtracking-oqi9.onrender.com", {
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
@@ -40,7 +40,7 @@ function App() {
       setCurrentUserId(newSocket.id);
     });
 
-    newSocket.on("connect_error", (error) => {
+    newSocket.on("connect_error", (error: any) => {
       console.error("Connection error:", error);
     });
 
@@ -111,7 +111,7 @@ function App() {
   }, [socket, getLocation]);
 
   // Determine center of map based on current user's location or first marker
-  const mapCenter =
+  const mapCenter: any =
     markers.length > 0
       ? [markers[0].latitude, markers[0].longitude]
       : [27.68895, 85.343984]; // Default to Kathmandu if no markers
